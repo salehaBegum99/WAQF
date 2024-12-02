@@ -5,5 +5,30 @@ padding: 0;
 .header{
     height: 15vh;
     width: 100%;
-    background-color:rgb(108, 109, 105) ;
+    background: linear-gradient(to right, #215999, #585859);
+    box-shadow: 5px 5px 10px gray;
+    color:white;
+
+}
+.b1,.b2 {
+    background: linear-gradient(to right, #215999, #585859);
+    /* box-shadow: 2px 2px 5px rgb(48, 48, 143), -2px -2px 5px rgb(98, 98, 167); */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Add slight shadow for depth */
+    transition: transform 0.2s, box-shadow 0.2s;
+
+}
+/* .b2 {
+    box-shadow: 2px 2px 5px blue, -2px -2px 5px blue;
+
+} */
+.b1:hover{
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+}
+.b2:hover{
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
 }

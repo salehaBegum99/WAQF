@@ -1,0 +1,27 @@
+.header{
+    height: 15vh;
+    width: 100%;
+    background-color:rgb(54, 52, 98) ;
+    box-shadow: 5px 5px 10px gray;
+    color:white;
+
+}
+.heading h1{
+    background: linear-gradient(to left, #1e5899, rgb(106, 109, 113));
+    /* box-shadow: 2px 2px 5px rgb(48, 48, 143), -2px -2px 5px rgb(98, 98, 167); */
+    border: none;
+    border-radius: 8px;
+}
+.form{
+    background: linear-gradient(to left, #1e5899, rgb(106, 109, 113)); 
+}
+.button{
+    background:rgb(88, 88, 93);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: larger;
+}
+.button:hover{
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.3);
+}

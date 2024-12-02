@@ -1,12 +1,16 @@
 import React from "react";
-import * as Yup from "yup";
-import axios from "axios";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import './Property.css';
+import * as Yup from "yup";//for validations
+import { useNavigate } from "react-router-dom";
+import { IoArrowBack } from 'react-icons/io5';
+import axios from "axios";//for connecting api
+import { Formik, Form, Field, ErrorMessage } from "formik"; 
 import Input from "../../../Components/Input";
-import { Await } from "react-router-dom";
+
 const Property = () => {
+  const Navigate = useNavigate();
   const propertyValues = {
-    Property_Name: " ",
+    Property_Name: "",
     Street: "",
     City: "",
     State: "",
@@ -15,8 +19,8 @@ const Property = () => {
   };
 
   const PropertyValidationSchema = Yup.object().shape({
+    Street: Yup.string().required("Street is required"),
     Property_Name: Yup.string().required("Property Name is required"),
-    Land_Area: Yup.string().required("Area is required"),
     City: Yup.string().required("City is required"),
     State: Yup.string().required("State is required"),
     Land_Area: Yup.number()
@@ -43,12 +47,13 @@ const Property = () => {
   return (
     <>
       <div className="header items-center">
-        <h1 className="text-center font-semibold text-4xl pt-4">
-          WAQF TASK TRACKER
-        </h1>
+        <h1 className="text-center font-bold text-4xl pt-5">WAQF TASK TRACKER</h1>
+        <button onClick={()=>Navigate(-1)}
+       className=" ml-[3vw] mb-6  bg-stone-700 relative align-text-center bottom-[8vh] font-semibold rounded-md focus:ring-2 focus:ring-white focus:outline-none text-2xl pb-[8vh] pl-3 h-[10vh] w-[12vw]">
+        <IoArrowBack></IoArrowBack>Back</button>
       </div>
-      <div>
-        <h1 className=" pl-[45vw] h-14 font-bold pt-3 text-xl bg-stone-700 ">
+      <div className="heading">
+        <h1 className=" pl-[45vw] mt-2 h-14 font-bold pt-3 text-xl bg-stone-700 ">
           ADD PROPERTY
         </h1>
         <Formik
@@ -56,19 +61,21 @@ const Property = () => {
           onSubmit={handleSubmit}
           validationSchema={PropertyValidationSchema}
         >
-          <Form className="grid grid-cols-4 gap-4 mt-7 m-3 items-center bg-slate-400 ">
-            <Input
-              label={"Property Name"}
-              name={"Property_Name"}
-              type={"text"}
-              required={""}
-            />
+          <Form className="form grid grid-cols-4 gap-4 mt-7 m-3 items-center bg-slate-400 ">
+           <Input
+           label={"Property Name"}
+           name={"Property_Name"}
+           type={"text"}
+           required={""}
+           placeholder={"Enter Property Name"}
+           />
 
             <Input
               label={"Street"}
               name={"Street"}
               type={"text"}
               required={""}
+              placeholder={"Enter Street"}
             />
             <Input label={"City"} name={"City"} type={"text"} required={""} />
             <Input label={"State"} name={"State"} type={"text"} required={""} />
@@ -106,7 +113,7 @@ const Property = () => {
             <p></p>
             <div>
               <button
-                className="border border-b-2 w-[20vw] h-[10vh] m-4 rounded-md bg-blue-200 hover:zoom-in"
+                className="button border border-b-2 w-[19vw] h-[8vh] m-4 rounded-md bg-blue-200 hover:zoom-in"
                 type="submit"
               >
                 Submit
