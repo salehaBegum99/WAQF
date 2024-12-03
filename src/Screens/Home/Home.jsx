@@ -118,7 +118,7 @@ const Home = () => {
         </div>
 
         {/* Task Data Table */}
-        <div className="w-1/2">
+        <div className="w-1/2 mr-10">
           <h1 className="text-neutral-800 underline text-2xl text-center mb-4">
             Task Data
           </h1>

@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import axios from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const CustomizedTable1 = ({
   data,
@@ -65,7 +65,7 @@ const CustomizedTable1 = ({
             row._id === editingRow._id ? { ...row, ...updatedData } : row
           )
         );
-        toast.success("Task updated successfully!");
+        alert("Task updated successfully!");
       } else if (tableType === "property") {
         const response = await axios.put(
           `http://localhost:5000/api/properties/${editingRow._id}`,
@@ -78,14 +78,14 @@ const CustomizedTable1 = ({
             row._id === editingRow._id ? { ...row, ...updatedData } : row
           )
         );
-        toast.success("Property updated successfully!");
+        alert("Property updated successfully!");
       } else {
         console.error("Unknown form type");
-        toast.error("Failed to determine form type.");
+        alert("Failed to determine form type.");
       }
     } catch (error) {
       console.error(`Error updating ${tableType === "task" ? "task" : "property"}`, error);
-      toast.error(`Failed to update the ${tableType}.`);
+      alert(`Failed to update the ${tableType}.`);
     } finally {
       setOpenModal(false);
       setEditingRow(null);

@@ -1,11 +1,13 @@
 import React from "react";
 import './Property.css';
 import * as Yup from "yup";//for validations
+// import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from 'react-icons/io5';
 import axios from "axios";//for connecting api
 import { Formik, Form, Field, ErrorMessage } from "formik"; 
 import Input from "../../../Components/Input";
+// import { toast } from "react-toastify";
 
 const Property = () => {
   const Navigate = useNavigate();
@@ -34,11 +36,11 @@ const Property = () => {
     try {
       // API call to your backend
       const response = axios.post("http://localhost:5000/api/properties", values);
-      console.log("Task successfully submitted:", response.data);
-      alert("Task submitted successfully!");
+      console.log("Property successfully submitted:", response.data);
+      alert("Property submitted successfully")
     } catch (error) {
       console.error("Error submitting task:", error);
-      alert("Failed to submit task. Please try again.");
+      alert("Failed to submit Property. Please try again.")
     } finally {
       setSubmitting(false);
     }
@@ -47,7 +49,7 @@ const Property = () => {
   return (
     <>
       <div className="header items-center">
-        <h1 className="text-center font-bold text-4xl pt-5">WAQF TASK TRACKER</h1>
+            <h1 className="text-center font-bold text-4xl pt-5">WAQF TASK TRACKER</h1>
         <button onClick={()=>Navigate(-1)}
        className=" ml-[3vw] mb-6  bg-stone-700 relative align-text-center bottom-[8vh] font-semibold rounded-md focus:ring-2 focus:ring-white focus:outline-none text-2xl pb-[8vh] pl-3 h-[10vh] w-[12vw]">
         <IoArrowBack></IoArrowBack>Back</button>
@@ -56,6 +58,7 @@ const Property = () => {
         <h1 className=" pl-[45vw] mt-2 h-14 font-bold pt-3 text-xl bg-stone-700 ">
           ADD PROPERTY
         </h1>
+      
         <Formik
           initialValues={propertyValues}
           onSubmit={handleSubmit}

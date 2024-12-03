@@ -1,6 +1,7 @@
 *{
 margin: 0;
 padding: 0;
+scrollbar-base-color: #215999;
 }
 .header{
     height: 15vh;

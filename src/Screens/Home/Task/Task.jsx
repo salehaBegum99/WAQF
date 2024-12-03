@@ -39,7 +39,7 @@ const Task = () => {
         try {
           // API call to my backend
           const response = await axios.post("http://localhost:5000/api/tasks", values);
-          console.log("Task successfully submitted:", response.data);
+          console.log("Task successfully submitted:", response.values);
           alert("Task submitted successfully!");
         } catch (error) {
           console.error("Error submitting task:", error);
@@ -139,19 +139,7 @@ const TaskValidationSchema= Yup.object().shape({
                     { value: 'maintenance', label: 'Maintenance' },
                     { value: 'urgent', label: 'Urgent' }
                 ]} required={""}/>
-                    {/* <div className="w-full h-full bg-slate-700">
-                        <label>Area</label>
-                        <Field type="Area" name="Area" className= "bg-gray-50 border border-gray-400 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[20vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
-                    </div>
-                    <div className="w-full h-full bg-slate-700">
-                        <label>City</label>
-                        <Field type="City" name="City" className= "bg-gray-50 border border-gray-400 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[20vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
-                    </div>
-                    <div className="w-full h-full bg-slate-700">
-                        <label>State</label>
-                        <Field type="State" name="State" className= "bg-gray-50 border border-gray-400 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[20vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
-                    </div> */}
-                 
+                    
                 <p></p>
             <div>
                 <button className="button border border-b-2 w-[20vw] h-[10vh] m-4 rounded-md bg-blue-200 hover:zoom-in" type="submit" >Submit</button>
